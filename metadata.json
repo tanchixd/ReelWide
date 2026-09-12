@@ -1,0 +1,6 @@
+{
+  "name": "ReelWide",
+  "description": "Convert vertical Facebook Reels and public Facebook videos into landscape format by changing orientation (90° rotation), crop fill, or blur backdrop with instant preview.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
