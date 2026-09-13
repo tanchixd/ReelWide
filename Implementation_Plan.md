@@ -3,12 +3,18 @@
 ## 1. Overview
 ReelWide provides high-fidelity vertical-to-landscape transformation for Facebook Reels and videos. To allow the creator (Tanchi) to monetize the tool, we have integrated dedicated advertising and sponsorship placeholders along with the UPI / Buy Me a Coffee support hub.
 
-## 2. Monetization Components
+## 2. Monetization & Creator Support Components (Locked & Secured)
+- `src/components/BuyMeACoffeeModal.tsx`:
+  - **Permanently Locked Creator Credentials**: UPI ID (`priyankasinha3162@ybl`), Payee (`Tanchi`), and Buy Me a Coffee (`https://www.buymeacoffee.com/tanchixd`) are immutable constants.
+  - **Removed all user-facing payout editing controls**: Visitors can no longer edit UPI IDs, change handles, or upload screenshots. All payouts route strictly and securely to Tanchi.
+  - **Auto-cleans stale storage**: Automatically removes any legacy `localStorage` keys on startup to prevent cache-poisoning.
+  - Embedded official customized Buy Me a Coffee button badge (`https://img.buymeacoffee.com/button-api/?text=Support me 💜&emoji=🌺&slug=tanchixd&button_colour=a694ff...`).
+  - Zero-fee UPI QR integration ready for instant PhonePe / GPay payments with preset amounts (₹49, ₹99, ₹199, ₹499, or custom).
+- `src/components/ErrorBoundary.tsx`:
+  - Global error boundary capturing any unexpected runtime rendering exceptions and offering a 1-click reload button rather than a blank black screen.
 - `src/components/AdBannerPlaceholder.tsx`:
-  - Responsive, dark-styled ad slot supporting Google AdSense (`ins.adsbygoogle`) and custom partner banners.
-  - Includes an in-app **Configure Ad** modal allowing the publisher to set or update their `ca-pub-XXXXXXXX` Client ID and Slot ID without re-deploying code.
-  - Automatically activates the Google AdSense loader when live IDs are supplied.
-  - Can be dismissed during previews and testing.
+  - **Removed user-facing "Configure Ad" button and developer modal**: Website visitors cannot view or alter ad client IDs or slots.
+  - Clean, dark-mode sponsored placeholder for visitors with dismiss option; seamlessly switches to Google AdSense only when configured via environment or code props.
 - `index.html`:
   - Includes Google AdSense loader script comment and preconnect headers.
 

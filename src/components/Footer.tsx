@@ -25,16 +25,31 @@ export const Footer: React.FC<FooterProps> = ({ onOpenCoffeeModal }) => {
         </div>
 
         {/* Action Controls & UPI / Coffee Support */}
-        <div className="flex items-center gap-4">
+        <div className="flex flex-wrap items-center justify-center md:justify-end gap-3">
+          {/* Official Buy Me a Coffee Widget Button */}
+          <a
+            href="https://www.buymeacoffee.com/tanchixd"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex transition-transform hover:scale-105 active:scale-95 shadow-md shadow-purple-950/40 rounded-xl overflow-hidden cursor-pointer"
+            title="Support me 💜 on Buy Me A Coffee"
+          >
+            <img
+              src="https://img.buymeacoffee.com/button-api/?text=Support me 💜&emoji=🌺&slug=tanchixd&button_colour=a694ff&font_colour=000000&font_family=Poppins&outline_colour=000000&coffee_colour=FFDD00"
+              alt="Support me 💜"
+              className="h-[36px] sm:h-[40px] w-auto max-w-full"
+              referrerPolicy="no-referrer"
+            />
+          </a>
+
           <button
             type="button"
             id="footer-support-btn"
             onClick={onOpenCoffeeModal}
-            className="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-purple-500/15 via-indigo-500/15 to-amber-500/15 hover:from-purple-500/25 hover:to-amber-500/25 border border-purple-500/30 hover:border-purple-500/50 text-purple-200 hover:text-white text-xs font-semibold flex items-center gap-2 transition-all active:scale-95 shadow-sm cursor-pointer"
+            className="px-3.5 py-2 rounded-xl bg-gradient-to-r from-purple-500/15 via-indigo-500/15 to-amber-500/15 hover:from-purple-500/25 hover:to-amber-500/25 border border-purple-500/30 hover:border-purple-500/50 text-purple-200 hover:text-white text-xs font-semibold flex items-center gap-2 transition-all active:scale-95 shadow-sm cursor-pointer h-[36px] sm:h-[40px]"
           >
             <QrCode className="w-4 h-4 text-purple-400" />
-            <Coffee className="w-4 h-4 fill-amber-400/20 text-amber-400" />
-            <span>Support Creator (UPI QR / Coffee)</span>
+            <span>UPI QR (0% Fee)</span>
           </button>
         </div>
       </div>

@@ -30,6 +30,12 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [isCoffeeModalOpen, setIsCoffeeModalOpen] = useState(false);
+  const [coffeeModalTab, setCoffeeModalTab] = useState<'upi' | 'coffee'>('coffee');
+
+  const handleOpenCoffeeModal = (tab: 'upi' | 'coffee' = 'coffee') => {
+    setCoffeeModalTab(tab);
+    setIsCoffeeModalOpen(true);
+  };
   const [isSavingToGallery, setIsSavingToGallery] = useState(false);
   const [galleryStatusMessage, setGalleryStatusMessage] = useState<string | null>(null);
 
@@ -183,7 +189,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-neutral-950 text-neutral-100 flex flex-col font-sans selection:bg-blue-600/30 selection:text-blue-200">
-      <Header onOpenCoffeeModal={() => setIsCoffeeModalOpen(true)} />
+      <Header onOpenCoffeeModal={() => handleOpenCoffeeModal('coffee')} />
 
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         {/* VIEW 1: Finished Result Screen */}
@@ -192,7 +198,7 @@ export default function App() {
             <ResultCard
               job={activeJob}
               onReset={handleReset}
-              onOpenCoffeeModal={() => setIsCoffeeModalOpen(true)}
+              onOpenCoffeeModal={() => handleOpenCoffeeModal('coffee')}
             />
             {/* High-conversion Ad slot below results */}
             <AdBannerPlaceholder
@@ -428,11 +434,12 @@ export default function App() {
       </main>
 
       {/* Made By Tanchi Footer */}
-      <Footer onOpenCoffeeModal={() => setIsCoffeeModalOpen(true)} />
+      <Footer onOpenCoffeeModal={() => handleOpenCoffeeModal('coffee')} />
 
       {/* Buy Me a Coffee (Support Tanchi) Modal */}
       <BuyMeACoffeeModal
         isOpen={isCoffeeModalOpen}
+        defaultTab={coffeeModalTab}
         onClose={() => setIsCoffeeModalOpen(false)}
       />
 
